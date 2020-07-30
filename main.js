@@ -2,43 +2,6 @@ let calculating;
 let calcFinish;
 let x = 0;
 
-// Delete Last Symbol
-function lastSymbolDel() {
-	let res_blc = document.getElementById("result-block");
-	let new_res = res_blc.innerHTML.slice(0, -1);
-  res_blc.innerHTML = new_res;
-}
-
-// Delete All Symbol
-function allSymbolDel() {
-	let res_blc = document.getElementById("result-block");
-	res_blc.innerHTML = "";
-}
-
-// Function for Show/Hide History Block
-function showHideList() {
-	let history = document.querySelector(".history-block");
-	if (x % 2 == 0) {
-		history.style.display = "block";	
-		setTimeout(() => {
-			history.style.transform = "translate(-40px, 0px)";
-			setTimeout(() => {
-				history.style.transform = "translate(-20px, 0px)";
-				setTimeout(() => {
-					history.style.transform = "translate(20px, 0px)";
-				}, 30);
-			}, 30);
-		}, 30);	
-	}
-	else {
-		history.style.transform = "translate(-60px, 0px)";
-		history.style.display = "none";				
-	}
-	x++;
-	document.querySelector(".number-block > button > i").style.transform = "rotate(360deg)";
-	setTimeout(() => document.querySelector(".number-block > button > i").style.transform = "rotate(0deg)", 600);
-}
-
 // Add Buttons 
 (function () {
 	let calc_block = document.querySelector(".number-block");
@@ -122,4 +85,41 @@ function calculatingStart() {
 function addSymbol(num) { 
 	let res_blc = document.getElementById("result-block");
 	res_blc.innerHTML += num;
+}
+
+// Delete Last Symbol
+function lastSymbolDel() {
+	let res_blc = document.getElementById("result-block");
+	let new_res = res_blc.innerHTML.slice(0, -1);
+  res_blc.innerHTML = new_res;
+}
+
+// Delete All Symbol
+function allSymbolDel() {
+	let res_blc = document.getElementById("result-block");
+	res_blc.innerHTML = "";
+}
+
+// Function for Show/Hide History Block
+function showHideList() {
+	let history = document.querySelector(".history-block");
+	if (x % 2 == 0) {
+		history.style.display = "block";	
+		setTimeout(() => {
+			history.style.transform = "translate(-40px, 0px)";
+			setTimeout(() => {
+				history.style.transform = "translate(-20px, 0px)";
+				setTimeout(() => {
+					history.style.transform = "translate(20px, 0px)";
+				}, 30);
+			}, 30);
+		}, 30);	
+	}
+	else {
+		history.style.transform = "translate(-60px, 0px)";
+		history.style.display = "none";				
+	}
+	x++;
+	document.querySelector(".number-block > button > i").style.transform = "rotate(360deg)";
+	setTimeout(() => document.querySelector(".number-block > button > i").style.transform = "rotate(0deg)", 600);
 }
